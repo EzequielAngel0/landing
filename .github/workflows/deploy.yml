@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+# Despliegue a produccion (angelezequiel.dev): solo en push a main, que es
+# 100% manual del dueno (PR develop -> main). Mismo patron que el portfolio.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue a la vez; no cancela el que este en curso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Build with Astro
+        uses: withastro/action@v6
+        with:
+          node-version: 24
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
