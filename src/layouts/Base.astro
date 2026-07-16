@@ -1,0 +1,226 @@
+---
+import '@fontsource-variable/archivo/index.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/bebas-neue/index.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'es' | 'en';
+  // URL de esta pagina en el otro idioma; pinta el boton de idioma del header.
+  alternateHref?: string;
+}
+
+const T = {
+  es: {
+    description:
+      'Puerta de entrada de Angel Ezequiel Barbosa Lomeli: portfolio, redes y las páginas legales de sus apps.',
+    skip: 'Saltar al contenido',
+    theme: 'Cambiar tema',
+    langAria: 'English version',
+    role: 'Desarrollador',
+    system: 'Sistema',
+    staticSite: 'Sitio estático',
+    hubLegal: 'Hub y legales',
+    linksTitle: 'Enlaces',
+    directory: 'Directorio',
+    legal: 'Legales',
+    footNav: 'Enlaces del pie',
+    home: '/',
+  },
+  en: {
+    description:
+      'Entry point of Angel Ezequiel Barbosa Lomeli: portfolio, social profiles and the legal pages of his apps.',
+    skip: 'Skip to content',
+    theme: 'Toggle theme',
+    langAria: 'Versión en español',
+    role: 'Developer',
+    system: 'System',
+    staticSite: 'Static site',
+    hubLegal: 'Hub and legal pages',
+    linksTitle: 'Links',
+    directory: 'Directory',
+    legal: 'Legal',
+    footNav: 'Footer links',
+    home: '/en/',
+  },
+} as const;
+
+const { title, lang = 'es', alternateHref } = Astro.props;
+const t = T[lang];
+const description = Astro.props.description ?? t.description;
+const otherLang = lang === 'es' ? 'en' : 'es';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ece9e1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      (function () {
+        try {
+          var s = localStorage.getItem('theme');
+          var t =
+            s === 'light' || s === 'dark'
+              ? s
+              : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.dataset.theme = t;
+          document.documentElement.classList.add('js');
+          if (t === 'dark') {
+            var m = document.querySelector('meta[name="theme-color"]');
+            if (m) m.setAttribute('content', '#121417');
+          }
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link font-mono text-label" href="#main">{t.skip}</a>
+
+    <header class="sticky top-0 z-50 border-b border-line bg-paper">
+      <div class="mx-auto flex h-14 max-w-page items-center justify-between px-4 sm:px-6">
+        <a
+          href={t.home}
+          class="font-mono text-label font-medium tracking-wide text-ink uppercase hover:underline hover:underline-offset-[0.35em]"
+        >
+          Angel Ezequiel
+        </a>
+        <div class="flex items-center gap-2">
+          <button
+            id="theme-toggle"
+            type="button"
+            class="grid size-10 place-items-center rounded-sm border border-line text-ink transition-[transform,border-color] duration-150 ease-out hover:border-ink/35 active:scale-[0.96]"
+            aria-label={t.theme}
+          >
+            <span aria-hidden="true" class="dark:hidden">
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+                ></path>
+              </svg>
+            </span>
+            <span aria-hidden="true" class="hidden dark:inline">
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path>
+              </svg>
+            </span>
+          </button>
+          {
+            alternateHref && (
+              <a
+                href={alternateHref}
+                hreflang={otherLang}
+                lang={otherLang}
+                aria-label={t.langAria}
+                class="grid h-10 min-w-10 place-items-center rounded-sm border border-line px-2 font-mono text-label font-medium uppercase text-ink transition-[transform,border-color] duration-150 ease-out hover:border-ink/35 active:scale-[0.96]"
+              >
+                {otherLang}
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="mx-auto max-w-page px-4 sm:px-6">
+      <slot />
+    </main>
+
+    <footer class="mx-auto mt-16 max-w-page px-4 pb-10 sm:px-6">
+      <div class="rounded-xs border border-line font-mono text-label">
+        <div class="grid divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <div class="p-5">
+            <p class="tracking-wide text-ink uppercase">Angel Ezequiel Barbosa Lomeli</p>
+            <p class="mt-2 text-ink-soft">{t.role}</p>
+            <p class="mt-1 text-ink-soft">angelezequiel.dev</p>
+          </div>
+          <div class="p-5">
+            <p class="tracking-wide text-ink-soft uppercase">{t.system}</p>
+            <ul class="mt-2 space-y-1 text-ink-soft">
+              <li><span aria-hidden="true" class="text-status">[ok]</span> {t.staticSite}</li>
+              <li>{t.hubLegal}</li>
+              <li>v2026.07</li>
+            </ul>
+          </div>
+          <nav aria-label={t.footNav} class="p-5">
+            <p class="tracking-wide text-ink-soft uppercase">{t.linksTitle}</p>
+            <ul class="mt-2 space-y-1">
+              <li>
+                <a
+                  href={`${t.home}#directorio`}
+                  class="text-ink-soft transition-colors hover:text-accent"
+                >
+                  {t.directory}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`${t.home}#legales`}
+                  class="text-ink-soft transition-colors hover:text-accent"
+                >
+                  {t.legal}
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line px-5 py-3 text-ink-soft"
+        >
+          <span class="tracking-wide uppercase">(c) 2026 Angel Ezequiel Barbosa Lomeli</span>
+          <span class="inline-flex flex-wrap gap-x-4">
+            <span aria-hidden="true" class="tracking-wide uppercase">REF: 2026-AE</span>
+            <span>angelezequiel.dev</span>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const btn = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+      const colors = { light: '#ece9e1', dark: '#121417' };
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = next;
+          const m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', colors[next]);
+          try {
+            localStorage.setItem('theme', next);
+          } catch (e) {}
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+/*
+ * Tokens de la landing, alineados con el sistema de diseno del portfolio
+ * (misma familia visual: Archivo + IBM Plex Mono + Bebas Neue, tinta azul,
+ * verde reservado a estado). Valores por tema como variables crudas en
+ * :root / [data-theme="dark"]; @theme las cablea a Tailwind 4.
+ */
+
+/* Tema claro ("papel"), por defecto. Papel calido, deliberadamente menos
+   blanco que el del portfolio (pedido del dueno 2026-07-16). */
+:root {
+  --paper: #ece9e1;
+  --surface: #f7f5ef;
+  --ink: #17181a;
+  --ink-soft: #4a4d52;
+  --accent: #33618f; /* azul tinta: links y acentos interactivos */
+  --status: #1e6e4e; /* verde operativo: solo estado */
+  --line: rgb(23 24 26 / 0.22);
+}
+
+/* Tema oscuro (neutro, sin orbes ni blur) */
+[data-theme='dark'] {
+  --paper: #121417;
+  --surface: #1f242b;
+  --ink: #edebe6;
+  --ink-soft: #a7a9ac;
+  --accent: #7fa9d4;
+  --status: #4cc38a;
+  --line: rgb(237 235 230 / 0.22);
+}
+
+/* Utilidades dark:* atadas a data-theme (no a prefers-color-scheme) */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  /* Display condensada para el nombre del hero; cae a Archivo si no carga. */
+  --font-display: 'Bebas Neue', 'Archivo Variable', ui-sans-serif, sans-serif;
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-status: var(--status);
+  --color-line: var(--line);
+
+  --text-label: 0.8125rem;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --container-page: 72rem;
+}
