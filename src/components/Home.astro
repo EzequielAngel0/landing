@@ -2,7 +2,15 @@
 import Base from '../layouts/Base.astro';
 import { links } from '../data/links';
 import { getLegal } from '../lib/legal';
-import { appLabels, kindLabels, kindLabelsEn, kindSlugEn, kindOrder } from '../data/legal-meta';
+import {
+  appLabels,
+  appLabelsEn,
+  appOrder,
+  kindLabels,
+  kindLabelsEn,
+  kindSlugEn,
+  kindOrder,
+} from '../data/legal-meta';
 
 interface Props {
   locale: 'es' | 'en';
@@ -20,7 +28,7 @@ const t = isEn
       dirAria: 'Link directory',
       legalTag: 'Legal documents',
       legalIntro:
-        'Privacy and terms pages for my applications, with a public, stable URL for store validation.',
+        'Privacy and terms pages for my applications and for this site, with a public, stable URL for store validation.',
       altPill: 'es',
       altPillAria: 'Spanish version',
     }
@@ -32,16 +40,18 @@ const t = isEn
       dirAria: 'Directorio de enlaces',
       legalTag: 'Documentos legales',
       legalIntro:
-        'Páginas de privacidad y términos de mis aplicaciones, con URL pública y estable para la validación de las tiendas.',
+        'Páginas de privacidad y términos de mis aplicaciones y de este sitio, con URL pública y estable para la validación de las tiendas.',
       altPill: 'en',
       altPillAria: 'English version',
     };
 
 const legal = await getLegal(locale);
-const apps = [...new Set(legal.map((e) => e.data.app))].sort();
+const apps = [...new Set(legal.map((e) => e.data.app))].sort(
+  (a, b) => (appOrder[a] ?? 9) - (appOrder[b] ?? 9),
+);
 const legalByApp = apps.map((app) => ({
   app,
-  label: appLabels[app] ?? app,
+  label: isEn ? (appLabelsEn[app] ?? app) : (appLabels[app] ?? app),
   docs: legal
     .filter((e) => e.data.app === app)
     .sort((a, b) => (kindOrder[a.data.kind] ?? 9) - (kindOrder[b.data.kind] ?? 9)),
