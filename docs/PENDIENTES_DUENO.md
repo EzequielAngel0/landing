@@ -7,8 +7,9 @@ Dashboards/consolas, cuentas, decisiones y legal. Contraparte: [`PENDIENTES_AGEN
 | Estado | Servicio | Para que | Donde queda la llave |
 | --- | --- | --- | --- |
 | [hecho] | Cloudflare DNS | raiz `angelezequiel.dev` CNAME a ezequielangel0.github.io (DNS only), igual `www` y `portfolio.` (verificado 2026-07-16). El 301 www lo maneja GitHub al fijar el apex como custom domain | consola Cloudflare |
-| [ ] | GitHub Pages | repo creado (github.com/EzequielAngel0/landing). Falta: Settings -> Pages -> Source: GitHub Actions + custom domain `angelezequiel.dev` tras el primer deploy | consola GitHub |
-| [ ] | `Enforce HTTPS` | tras emitir el certificado | Pages/Cloudflare |
+| [hecho] | GitHub Pages | repo github.com/EzequielAngel0/landing con Source: GitHub Actions y custom domain `angelezequiel.dev` (2026-07-16) | consola GitHub |
+| [hecho] | `Enforce HTTPS` | activado por el dueno (2026-07-16) | Pages |
+| [ ] | Cloudflare Web Analytics | crear el sitio en Cloudflare y pasar el token al agente (beacon solo-produccion) | consola Cloudflare |
 | [ ] | Cabeceras de seguridad | CSP, HSTS, `nosniff`, frame-deny (Pages no las emite; van en Cloudflare: Transform Rules + HSTS) | consola Cloudflare |
 
 ## B. Decisiones pendientes (di si/no; el codigo lo hace el agente)

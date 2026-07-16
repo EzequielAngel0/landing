@@ -23,6 +23,8 @@ Scaffold Astro 7 + Tailwind 4, hub con enlaces reales, identidad alineada al por
 | D11 | CI/CD | `package-lock.json` generado en Linux (contenedor), Containerfile a `npm ci` + gate `check && build`, workflows `ci.yml` (develop) y `deploy.yml` (main, withastro/action v6) | [hecho] |
 | D12 | Legales de la propia landing | Hallazgo del dueno: faltaba el par del sitio. Agregados privacidad y terminos ES/EN de `angelezequiel.dev` (localStorage funcional, analitica sin cookies condicional, clausula de documentos alojados). 16 paginas | [wip] (pendiente revision del dueno) |
 | D13 | Logo del header | "Angel Barbosa" en mono con la marca AE inline (pedido del dueno), enlazando al home del idioma | [hecho] |
+| D14 | SEO F4 | @astrojs/sitemap (16 URLs), robots con Sitemap, canonical, hreflang ES/EN con x-default, OG basica y twitter card | [hecho] |
+| D15 | Merge a main | El dueno configuro Pages (custom domain + Enforce HTTPS) y AUTORIZO explicitamente el merge develop -> main una vez listo (2026-07-16). Excepcion puntual a la regla de RAMAS, delegada por el dueno | [wip] |
 
 ## IMPORTANTE: los legales son borradores
 

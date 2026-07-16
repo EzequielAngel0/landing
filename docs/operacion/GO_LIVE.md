@@ -8,19 +8,19 @@ Prod es la raiz publica `angelezequiel.dev`. La landing es la primera cosa que u
 
 ## Checklist
 
-- [ ] Bootstrap del sitio (Astro 7 + Node 24 + Tailwind 4 + tokens + fuentes), como el portfolio
-- [ ] Home con directorio de enlaces reales (portfolio, GitHub, LinkedIn, contacto)
-- [ ] Al menos el primer par de legales publicado (segun inventario de apps del dueno)
-- [ ] Rutas legales estables y con `updatedAt` visible
-- [ ] `[dueno]` DNS en Cloudflare: raiz + 301 de `www` -> raiz
-- [ ] `[dueno]` `CNAME` en `public/` y `Enforce HTTPS` tras emitir el certificado
-- [ ] `[dueno]` Certificado del apex: si el apex esta proxeado, destrabar la emision poniendo el registro en DNS-only hasta que Pages muestre el certificado, luego reactivar el proxy (ver RUNBOOK)
-- [ ] `[dueno]` Cabeceras de seguridad en Cloudflare (Transform Rules + HSTS): CSP, `X-Content-Type-Options: nosniff`, frame-deny (ver SEGURIDAD)
-- [ ] CI/CD: build + deploy a Pages tras merge a `main`
-- [ ] Migracion coordinada: mover el portfolio fuera de la raiz ANTES o A LA VEZ que la landing toma la raiz (evitar que ambos peleen el dominio). Ver ADR 0002
-- [ ] Lighthouse 90+ (perf, a11y, SEO) y prueba sin JS
-- [ ] Analitica sin cookies (Cloudflare Web Analytics), solo produccion
-- [ ] Sitemap + robots.txt + OG basica
+- [hecho] Bootstrap del sitio (Astro 7 + Node 24 + Tailwind 4 + tokens + fuentes), 2026-07-16
+- [hecho] Home con directorio de enlaces reales (portfolio, GitHub, LinkedIn, X, WhatsApp, correo)
+- [hecho] Legales publicados: SoloKey (privacidad, terminos, eliminacion de datos), portfolio y la propia landing (privacidad, terminos), ES/EN. Pendiente la revision de fondo del dueno
+- [hecho] Rutas legales estables y con `updatedAt` visible; pares ES/EN validados en build
+- [hecho] `[dueno]` DNS en Cloudflare: raiz CNAME a ezequielangel0.github.io (el 301 de www lo maneja GitHub)
+- [hecho] `[dueno]` Custom domain + `Enforce HTTPS` configurados en Pages (2026-07-16)
+- [hecho] `[dueno]` Certificado del apex emitido (registros en DNS-only, sin trampa de proxy)
+- [ ] `[dueno]` Cabeceras de seguridad en Cloudflare (Transform Rules + HSTS): requieren activar el proxy (nube naranja); hoy los registros estan DNS-only (ver SEGURIDAD)
+- [hecho] CI/CD: `ci.yml` valida develop; `deploy.yml` construye y despliega a Pages en push a `main`
+- [hecho] Migracion coordinada: el portfolio ya vive en `portfolio.angelezequiel.dev` (dueno, 2026-07-16)
+- [ ] Lighthouse 90+ (perf, a11y, SEO) y prueba sin JS (medir tras el go-live)
+- [ ] Analitica sin cookies (Cloudflare Web Analytics): `[dueno]` crear el sitio en Cloudflare y pasar el token; el agente agrega el beacon solo-produccion
+- [hecho] Sitemap + robots.txt con Sitemap + OG basica + canonical + hreflang ES/EN
 
 ## Coordinacion critica con el portfolio
 
