@@ -1,0 +1,13 @@
+# Verificacion contenedorizada de la landing (Podman).
+#
+#   podman compose up --build      construye y sirve en http://localhost:4321
+#   podman compose down            detiene y limpia
+#
+services:
+  site:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: landing-verify
+    ports:
+      - '4321:4321'
