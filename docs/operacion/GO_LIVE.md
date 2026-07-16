@@ -19,7 +19,7 @@ Prod es la raiz publica `angelezequiel.dev`. La landing es la primera cosa que u
 - [hecho] CI/CD: `ci.yml` valida develop; `deploy.yml` construye y despliega a Pages en push a `main`
 - [hecho] Migracion coordinada: el portfolio ya vive en `portfolio.angelezequiel.dev` (dueno, 2026-07-16)
 - [ ] Lighthouse 90+ (perf, a11y, SEO) y prueba sin JS (medir tras el go-live)
-- [ ] Analitica sin cookies (Cloudflare Web Analytics): `[dueno]` crear el sitio en Cloudflare y pasar el token; el agente agrega el beacon solo-produccion
+- [hecho] Analitica sin cookies (Cloudflare Web Analytics): beacon solo-produccion con el token del dueno (2026-07-16)
 - [hecho] Sitemap + robots.txt con Sitemap + OG basica + canonical + hreflang ES/EN
 
 ## Coordinacion critica con el portfolio

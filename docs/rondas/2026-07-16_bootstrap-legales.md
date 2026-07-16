@@ -25,6 +25,8 @@ Scaffold Astro 7 + Tailwind 4, hub con enlaces reales, identidad alineada al por
 | D13 | Logo del header | "Angel Barbosa" en mono con la marca AE inline (pedido del dueno), enlazando al home del idioma | [hecho] |
 | D14 | SEO F4 | @astrojs/sitemap (16 URLs), robots con Sitemap, canonical, hreflang ES/EN con x-default, OG basica y twitter card | [hecho] |
 | D15 | Merge a main | El dueno configuro Pages (custom domain + Enforce HTTPS) y AUTORIZO explicitamente el merge develop -> main una vez listo (2026-07-16). Excepcion puntual a la regla de RAMAS, delegada por el dueno | [wip] |
+| D16 | Primer deploy fallido (404 en el apex) | Causa: el environment `github-pages` solo permitia la rama default (`develop`, primera en subirse); el job deploy de `main` fallaba sin ejecutar pasos. Fix: politica de rama `main` agregada al environment via API. CI de develop en verde (3 runs) | [hecho] |
+| D17 | Beacon de analitica | Cloudflare Web Analytics (sin cookies) con el token del dueno, solo-produccion, en Base.astro. La politica de privacidad de la landing ya lo cubria ("si esta activa") | [hecho] |
 
 ## IMPORTANTE: los legales son borradores
 
