@@ -52,6 +52,15 @@ const { title, lang = 'es', alternateHref } = Astro.props;
 const t = T[lang];
 const description = Astro.props.description ?? t.description;
 const otherLang = lang === 'es' ? 'en' : 'es';
+
+// SEO (F4): canonical absoluto + hreflang del par ES/EN + OG basica.
+// x-default apunta siempre a la version ES (idioma por defecto del sitio).
+const SITE = 'https://angelezequiel.dev';
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const alternateAbs = alternateHref ? new URL(alternateHref, SITE).href : undefined;
+const xDefault = lang === 'es' ? canonical : alternateAbs;
+const ogLocale = lang === 'es' ? 'es_MX' : 'en_US';
+const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_MX';
 ---
 
 <!doctype html>
@@ -63,6 +72,25 @@ const otherLang = lang === 'es' ? 'en' : 'es';
     <meta name="description" content={description} />
     <meta name="theme-color" content="#ece9e1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonical} />
+    {
+      alternateAbs && (
+        <Fragment>
+          <link rel="alternate" hreflang={lang} href={canonical} />
+          <link rel="alternate" hreflang={otherLang} href={alternateAbs} />
+          <link rel="alternate" hreflang="x-default" href={xDefault} />
+        </Fragment>
+      )
+    }
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="angelezequiel.dev" />
+    <meta property="og:locale" content={ogLocale} />
+    {alternateAbs && <meta property="og:locale:alternate" content={ogLocaleAlt} />}
+    <meta name="twitter:card" content="summary" />
     <script is:inline>
       (function () {
         try {
