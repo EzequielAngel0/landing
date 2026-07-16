@@ -92,9 +92,21 @@ const otherLang = lang === 'es' ? 'en' : 'es';
       <div class="mx-auto flex h-14 max-w-page items-center justify-between px-4 sm:px-6">
         <a
           href={t.home}
-          class="font-mono text-label font-medium tracking-wide text-ink uppercase hover:underline hover:underline-offset-[0.35em]"
+          class="inline-flex min-h-10 items-center gap-2.5 font-mono text-label font-medium tracking-wide text-ink uppercase hover:underline hover:underline-offset-[0.35em]"
         >
-          Angel Ezequiel
+          <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true" class="shrink-0">
+            <rect width="32" height="32" rx="4" fill="currentColor"></rect>
+            <text
+              x="16"
+              y="21"
+              font-family="'IBM Plex Mono', ui-monospace, monospace"
+              font-size="13"
+              font-weight="600"
+              fill="var(--color-paper)"
+              text-anchor="middle"
+              letter-spacing="0.5">AE</text>
+          </svg>
+          Angel Barbosa
         </a>
         <div class="flex items-center gap-2">
           <button
