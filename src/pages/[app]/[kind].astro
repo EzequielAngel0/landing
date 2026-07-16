@@ -1,0 +1,29 @@
+---
+import { render } from 'astro:content';
+import Legal from '../../layouts/Legal.astro';
+import { getLegal } from '../../lib/legal';
+import { kindSlugEn } from '../../data/legal-meta';
+
+// Rutas estables /<app>/<kind>/ (espanol). El par EN vive en /en/<app>/<slug-en>/.
+export async function getStaticPaths() {
+  const entries = await getLegal('es');
+  return entries.map((entry) => ({
+    params: { app: entry.data.app, kind: entry.data.kind },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const updated = entry.data.updatedAt.toLocaleDateString('es-MX', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const alternateHref = `/en/${entry.data.app}/${kindSlugEn[entry.data.kind] ?? entry.data.kind}/`;
+---
+
+<Legal title={entry.data.title} updatedAt={updated} locale="es" alternateHref={alternateHref}>
+  <Content />
+</Legal>
