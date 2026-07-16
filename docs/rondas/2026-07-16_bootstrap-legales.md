@@ -21,6 +21,8 @@ Scaffold Astro 7 + Tailwind 4, hub con enlaces reales, identidad alineada al por
 | D9 | i18n completo + boton de idioma | Home EN en `/en/` (componente compartido `src/components/Home.astro`), boton de idioma junto al de tema en el header (Base), chrome bilingue. 12 paginas en 200 | [hecho] |
 | D10 | Modo claro calido | `--paper: #ece9e1`, `--surface: #f7f5ef` (pedido del dueno: no blanco puro); contraste AA verificado de tokens | [hecho] |
 | D11 | CI/CD | `package-lock.json` generado en Linux (contenedor), Containerfile a `npm ci` + gate `check && build`, workflows `ci.yml` (develop) y `deploy.yml` (main, withastro/action v6) | [hecho] |
+| D12 | Legales de la propia landing | Hallazgo del dueno: faltaba el par del sitio. Agregados privacidad y terminos ES/EN de `angelezequiel.dev` (localStorage funcional, analitica sin cookies condicional, clausula de documentos alojados). 16 paginas | [wip] (pendiente revision del dueno) |
+| D13 | Logo del header | "Angel Barbosa" en mono con la marca AE inline (pedido del dueno), enlazando al home del idioma | [hecho] |
 
 ## IMPORTANTE: los legales son borradores
 
