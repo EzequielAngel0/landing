@@ -27,20 +27,22 @@ Scaffold Astro 7 + Tailwind 4, hub con enlaces reales, identidad alineada al por
 | D15 | Merge a main y GO-LIVE | Merge develop -> main ejecutado con autorizacion explicita del dueno (excepcion puntual a la regla de RAMAS). Sitio VIVO en `https://angelezequiel.dev` (2026-07-16): 8 rutas verificadas en 200, hero, beacon, canonical y 301 de www en produccion | [hecho] |
 | D16 | Primer deploy fallido (404 en el apex) | Causa: el environment `github-pages` solo permitia la rama default (`develop`, primera en subirse); el job deploy de `main` fallaba sin ejecutar pasos. Fix: politica de rama `main` agregada al environment via API. CI de develop en verde (3 runs) | [hecho] |
 | D17 | Beacon de analitica | Cloudflare Web Analytics (sin cookies) con el token del dueno, solo-produccion, en Base.astro. La politica de privacidad de la landing ya lo cubria ("si esta activa") | [hecho] |
+| D18 | Legales NO van por la API de admin | Decision del dueno (2026-07-16): se quedan versionados en este repo; admin solo cataloga proyectos y certificaciones. Registrado en REQUISITOS y ROADMAP de la landing y en admin/docs/producto/REQUISITOS.md. TBDs resueltos de paso: ubicacion del portfolio, idiomas ES/EN | [hecho] |
 
 ## IMPORTANTE: los legales son borradores
 
 Los textos legales se generaron a partir del comportamiento observado del codigo, no por un profesional legal. Antes de enlazarlos en una ficha de tienda: el dueno debe revisarlos y aprobarlos, y para asuntos criticos conviene validacion legal. La regla del proyecto ("el dueno redacta o aprueba") se cumple con esa revision.
 
-## Pendiente
+## Pendiente (al cierre de la ronda)
 
-- [ ] Revision de fondo del dueno de los 10 legales (ES+EN); correo y jurisdiccion ya confirmados (D8).
-- [hecho] CI/CD: workflows listos; falta que el dueno configure Pages (Source: GitHub Actions, custom domain) y mergee develop -> main.
-- [hecho] Lockfile + `npm ci` (D11).
-- [hecho] i18n EN de los legales con slugs localizados (D7, D9).
-- [ ] SEO de F4: sitemap, robots con sitemap, OG, hreflang alternates en el `head`.
-- [ ] Barrido de estado: quedan referencias a "solo documentacion" en algun doc; revisar al cerrar la ronda.
+- [ ] Revision de fondo del dueno de los 14 legales (7 documentos x ES/EN); correo y jurisdiccion ya confirmados (D8).
+- [ ] Lighthouse 90+ y prueba sin JS sobre produccion.
+- [ ] Opcional: cabeceras de seguridad via Cloudflare (exige proxy naranja; ver RUNBOOK por el cert).
+- [ ] Opcional (repo portfolio): actualizar su token de Cloudflare Web Analytics al del sitio nuevo `portfolio.angelezequiel.dev` (hoy usa el token viejo).
+- [hecho] CI/CD, Pages, custom domain, Enforce HTTPS, merge a main y GO-LIVE (D15, D16).
+- [hecho] Lockfile + `npm ci` (D11) · i18n con slugs localizados (D7, D9) · SEO F4 (D14) · beacon (D17).
+- [hecho] Barrido de estado: docs y CLAUDE.md actualizados a "en produccion".
 
 ## Cierre
 
-- [ ] El dueno revisa la interfaz y los legales; si aprueba, se sigue con CI y despliegue.
+Ronda cerrada el 2026-07-16 con el sitio VIVO en produccion. Los restos quedan arriba en "Pendiente" y copiados a PENDIENTES_DUENO. Siguiente proyecto del ecosistema: bootstrap de `admin` (sus TBDs de dueno: framework del panel y almacenamiento de archivos; la decision de legales ya quedo cerrada, D18).

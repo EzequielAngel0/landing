@@ -30,4 +30,4 @@ Pase de precision sobre la afirmacion de cabeceras (Pages no emite cabeceras pro
 
 ## Cierre
 
-- [ ] El dueno revisa y, si aprueba, mergea `develop -> main` (la landing sigue en estado "solo documentacion").
+- [hecho] Superado por la ronda siguiente (`2026-07-16_bootstrap-legales.md`): el sitio se construyo y esta en produccion; el merge a main lo autorizo el dueno explicitamente.

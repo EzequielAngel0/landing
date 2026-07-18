@@ -59,10 +59,10 @@ No hay usuarios autenticados: todo el contenido es publico.
 | 2026-07-15 | Landing en la raiz; portfolio se mueve a subdominio o subruta y sigue como repo aparte | Decision del dueno. [`adr/0002`](../adr/0002-dominio-raiz-y-relacion-portfolio.md) |
 | 2026-07-15 | Contenido estatico en el repo, sin CMS en la v1 | Simplicidad; el CMS es del ecosistema `admin`. [`adr/0003`](../adr/0003-contenido-en-repo-sin-backend.md) |
 | 2026-07-15 | Stack alineado con el portfolio (Astro + Tailwind 4) | Reuso de convenciones y tooling. [`adr/0001`](../adr/0001-stack.md) |
+| 2026-07-16 | Portfolio en subdominio `portfolio.angelezequiel.dev`; landing viva en la raiz | Ejecutado por el dueno. [`adr/0002`](../adr/0002-dominio-raiz-y-relacion-portfolio.md) |
+| 2026-07-16 | Legales bilingues ES/EN, con slug EN localizado (`/en/<app>/privacy/`) | Decision del dueno; pares validados en build |
+| 2026-07-16 | Los legales se quedan en este repo; la API de `admin` solo cataloga proyectos y certificaciones | Decision del dueno: auditoria git como evidencia para tiendas y cadena de dependencias corta. Reafirma [`adr/0003`](../adr/0003-contenido-en-repo-sin-backend.md); registrado tambien en admin |
 
 ## TBD (decisiones abiertas, ver PENDIENTES_DUENO)
 
-- Ubicacion final del portfolio (subdominio `me.`/`www.` o subruta `/portfolio/`).
-- Inventario de apps que necesitan legales (nombres y cuales van primero).
-- Idiomas de los legales (solo ES, o ES/EN).
-- Si el directorio de proyectos de la landing se alimenta a futuro desde `admin` (API) o se queda estatico.
+- Si el directorio de proyectos de la landing se alimenta a futuro desde `admin` (API, en build) o se queda estatico. Requiere ADR nuevo.

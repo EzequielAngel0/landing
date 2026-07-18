@@ -16,15 +16,16 @@ Dashboards/consolas, cuentas, decisiones y legal. Contraparte: [`PENDIENTES_AGEN
 
 | Estado | Decision | Contexto / recomendacion |
 | --- | --- | --- |
-| [ ] | Ubicacion del portfolio al salir de la raiz | subdominio (`me.`, `www.`) o subruta (`/portfolio/`). Recomendacion: subdominio para separar repos y deploys limpios. Ver ADR 0002 |
-| [ ] | Idiomas de los legales | solo ES o ES/EN. Recomendacion: el que exija la tienda; ES/EN si el portfolio ya es bilingue |
+| [resuelto] | Ubicacion del portfolio al salir de la raiz | Decidido y ejecutado (2026-07-16): subdominio `portfolio.angelezequiel.dev`. Ver ADR 0002 |
+| [resuelto] | Idiomas de los legales | Decidido (2026-07-16): ES/EN. ES en `/<app>/<kind>/`, EN con slug localizado en `/en/<app>/<slug>/`; pares validados en build |
 | [resuelto] | Estilo visual de la landing | Decidido (2026-07-16): identidad similar al portfolio (hermana), reusando su sistema de diseno (Archivo + IBM Plex Mono + Bebas Neue, tinta azul, papel). No es identidad propia ni ajena |
+| [resuelto] | Legales via admin o en el repo | Decidido (2026-07-16): los legales se quedan versionados en ESTE repo; la API de admin solo cataloga proyectos y certificaciones. Si algun dia se editan desde el panel, admin commitea al repo (PR), no los sirve desde BD. Registrado tambien en admin/docs/producto/REQUISITOS.md |
 
 ## C. Contenido que solo tu entregas
 
-- [ ] Inventario de apps que necesitan legales (nombres, cuales van primero).
-- [ ] Textos de Politica de Privacidad y Terminos por app (redactados o aprobados por ti; el agente no inventa clausulas legales).
-- [ ] Enlaces reales del directorio (portfolio, GitHub, LinkedIn, contacto/WhatsApp).
+- [hecho] Primeras apps con legales: SoloKey, portfolio y la propia landing (publicados 2026-07-16). El inventario sigue vivo: al publicar una app nueva, agregar su par.
+- [ ] Revision de fondo y aprobacion de los 14 legales publicados (7 documentos x ES/EN); son borradores fieles al codigo, pero la aprobacion es tuya antes de usarlos en fichas de tienda.
+- [hecho] Enlaces reales del directorio (portfolio, GitHub, LinkedIn, X, WhatsApp, correo), tomados de site.ts del portfolio (2026-07-16).
 
 ## D. Migracion del dominio (critico)
 

@@ -10,10 +10,11 @@ es estatico y vive en el repo.
 
 ## Estado
 
-Solo documentacion. El desarrollo aun no arranca. Toda la documentacion (producto,
-arquitectura, decisiones, operacion) esta en [`docs/`](docs/README.md).
+En produccion: [angelezequiel.dev](https://angelezequiel.dev). Hub bilingue (ES/EN)
+y paginas legales por app via coleccion de contenido. Toda la documentacion
+(producto, arquitectura, decisiones, operacion) esta en [`docs/`](docs/README.md).
 
-## Stack (propuesto)
+## Stack
 
 Astro (SSG), Tailwind CSS 4, TypeScript estricto, fuentes self-hosted. Hosting en
 GitHub Pages con Cloudflare para DNS y borde. Detalle en

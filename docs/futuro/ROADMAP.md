@@ -18,3 +18,4 @@ Lo que NO es "ahora". Cada item se promueve a `PENDIENTES_AGENTE.md` cuando el d
 
 - CMS o backend en la landing: el contenido cambia poco y gana de estar en git; el CMS es responsabilidad de `admin` (ADR 0003).
 - Absorber el portfolio dentro de la landing: el dueno prefiere repos separados (ADR 0002).
+- Servir los legales desde la API de `admin` (decision del dueno, 2026-07-16): se quedan versionados en este repo. La auditoria git es evidencia para tiendas y la cadena de dependencias corta protege la superficie critica. Si algun dia se editan desde el panel, el camino es que admin commitee al repo (PR), no servirlos desde la BD; requeriria ADR nuevo.
