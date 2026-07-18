@@ -12,7 +12,7 @@ Tracker corto. El dueno autorizo investigar `C:\Proyectos\Flutter\SoloKey` y act
 | H4 | Respaldos .skvault | Export cifrado y respaldo programado a carpeta elegida por el usuario. Privacidad (conservacion), terminos (respaldos) y eliminacion de datos (seccion nueva: los exportados no se borran al desinstalar) | [hecho] |
 | H5 | Detalles tecnicos | Sync E2EE precisada como X25519 + AES-256-GCM (verificado en `sync_service.dart`); notificaciones locales ampliadas con recordatorios de rotacion y de respaldo | [hecho] |
 | H6 | Validacion | `npm run build` en verde: 20 paginas, pares ES/EN de solokey generados | [hecho] |
-| H7 | Publicacion | Push a `develop`. El merge a `main` (produccion) es del dueno; la autorizacion previa fue puntual y no se asume | [ ] (dueno) |
+| H7 | Publicacion | El dueno autorizo explicitamente el merge y push a `main` en esta ronda: ff `6a707ca..aa34b8b`, deploy de Pages en verde y verificado en produccion (terminos con MIT y fecha 18 de julio, privacy EN con Site icons, eliminacion con skvault). La revision de fondo de los textos sigue pendiente del dueno | [hecho] |
 
 ## Nota
 
