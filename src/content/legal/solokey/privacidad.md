@@ -3,7 +3,7 @@ app: solokey
 kind: privacidad
 locale: es
 title: Política de Privacidad de SoloKey
-updatedAt: 2026-07-16
+updatedAt: 2026-07-18
 ---
 
 Esta Política de Privacidad describe cómo la aplicación **SoloKey** (en adelante, "la App") trata la información. SoloKey es un gestor de contraseñas **local-first**: tus datos se guardan cifrados en tus propios dispositivos (Android y el companion de escritorio para Windows) y no se envían a ningún servidor del desarrollador ni de terceros.
@@ -22,6 +22,7 @@ La App funciona por completo en tu dispositivo. Las credenciales, contraseñas, 
 
 - **Contenido de tu bóveda:** las credenciales y archivos que tú creas. Se cifran con Argon2id y AES-256-GCM y se guardan únicamente en tu dispositivo. Nunca se transmiten al desarrollador.
 - **Contraseña maestra y biometría:** tu contraseña maestra se usa para derivar la clave de cifrado y no se almacena en texto claro ni se transmite. La autenticación biométrica la gestiona el sistema operativo; la App nunca accede a tus datos biométricos.
+- **Código de recuperación:** al crear la bóveda, la App genera un código de recuperación que se muestra una sola vez y permite restablecer la contraseña maestra sin salir del dispositivo. La App guarda únicamente un hash de ese código, nunca el código en sí, y no lo transmite.
 - **Preferencias de la App:** ajustes locales (tema, idioma, tiempos de bloqueo) guardados en el dispositivo.
 
 ## 4. Permisos del dispositivo
@@ -30,47 +31,52 @@ La App solicita únicamente los permisos necesarios para sus funciones, y solo c
 
 - **Cámara:** para escanear códigos QR (por ejemplo, un secreto TOTP o el emparejamiento de sincronización). Las imágenes se procesan en el momento y no se almacenan ni se envían.
 - **Biometría:** para desbloquear la bóveda con huella o rostro, gestionada por el sistema.
-- **Notificaciones:** para mostrar avisos locales (por ejemplo, una solicitud de aprobación desde el escritorio). Son notificaciones locales; no se usan servicios de mensajería en la nube.
+- **Notificaciones:** para mostrar avisos locales (por ejemplo, una solicitud de aprobación desde el escritorio, recordatorios de rotación de contraseñas o de respaldo). Son notificaciones locales; no se usan servicios de mensajería en la nube.
 - **Servicio de autocompletado (Android):** para ofrecerte credenciales en otras apps cuando lo solicites. La App solo entrega la credencial que eliges, tras tu autenticación.
 
 ## 5. Sincronización entre dispositivos (opcional)
 
-La sincronización es **opcional** y **punto a punto (P2P)** sobre tu red local. Si la activas, tus dispositivos se emparejan mediante un código QR y se comunican **cifrados de extremo a extremo** (AES-256-GCM). Los datos viajan directamente entre tus dispositivos: no pasan por ningún servidor del desarrollador ni de terceros, y no se almacenan en la nube.
+La sincronización es **opcional** y **punto a punto (P2P)** sobre tu red local. Si la activas, tus dispositivos se emparejan mediante un código QR y se comunican **cifrados de extremo a extremo** (intercambio de claves X25519 y cifrado AES-256-GCM). Los datos viajan directamente entre tus dispositivos: no pasan por ningún servidor del desarrollador ni de terceros, y no se almacenan en la nube.
 
 ## 6. Verificación de contraseñas filtradas (opcional)
 
 La App incluye una auditoría de seguridad con una función **opcional** que comprueba si una contraseña aparece en filtraciones conocidas, usando el servicio público **Have I Been Pwned** con el método de **k-Anonymity**. Con este método, la App envía únicamente los primeros cinco caracteres del hash SHA-1 de la contraseña; **nunca** se envía tu contraseña ni el hash completo, y el servicio no puede identificar la contraseña ni a ti. Esta comprobación solo ocurre si tú la activas.
 
-## 7. Sin terceros, sin analítica y sin publicidad
+## 7. Iconos de sitios (opcional)
 
-La App no integra servicios de analítica, seguimiento, publicidad ni informes de fallos de terceros. No se crean identificadores publicitarios ni perfiles de uso. Fuera de la verificación opcional descrita en la sección 6 y de la sincronización P2P local, la App no realiza conexiones que transmitan tus datos.
+Los iconos de las credenciales se generan localmente. La App incluye una función **desactivada por defecto** para mostrar el icono real del sitio (favicon): si se activa, la App solicita el icono al servicio de favicons de Google (`google.com/s2/favicons`), que recibe únicamente el **dominio** del sitio guardado, nunca usuarios ni contraseñas. Esa solicitud queda sujeta a la política de privacidad de Google. Mientras la función esté desactivada no se realiza ninguna conexión por este motivo.
 
-## 8. Conservación y eliminación de datos
+## 8. Sin terceros, sin analítica y sin publicidad
+
+La App no integra servicios de analítica, seguimiento, publicidad ni informes de fallos de terceros. No se crean identificadores publicitarios ni perfiles de uso. Fuera de las funciones opcionales descritas en las secciones 6 y 7 y de la sincronización P2P local, la App no realiza conexiones que transmitan tus datos.
+
+## 9. Conservación y eliminación de datos
 
 Como toda la información vive en tu dispositivo, **tú controlas su conservación y eliminación**:
 
 - Puedes borrar credenciales o vaciar la bóveda desde la propia App.
 - Al desinstalar la App se elimina su base de datos local y las llaves asociadas del dispositivo.
+- Los respaldos que exportas (archivos cifrados `.skvault`, incluidos los respaldos programados) se guardan en las carpetas que tú eliges; conservarlos o eliminarlos también está bajo tu control.
 - No existen datos en servidores del desarrollador, por lo que no hay nada que solicitar borrar de forma remota.
 
 Consulta la página de [Eliminación de datos](/solokey/eliminacion-datos/) para el detalle del procedimiento.
 
-## 9. Seguridad
+## 10. Seguridad
 
 La App aplica cifrado autenticado AES-256-GCM, derivación de clave Argon2id, bloqueo automático, protección contra fuerza bruta, teclado seguro y protección de pantalla (evita capturas en Android). Ningún sistema es infalible: mantén tu dispositivo actualizado y protege tu contraseña maestra, ya que sin ella no es posible descifrar tu bóveda.
 
-## 10. Menores de edad
+## 11. Menores de edad
 
 La App no está dirigida a menores de edad ni recopila de forma consciente datos de ellos. Al no recopilar datos personales, no se realiza tratamiento dirigido a menores.
 
-## 11. Cambios a esta política
+## 12. Cambios a esta política
 
 Podemos actualizar esta política para reflejar cambios en la App o en la normativa. La fecha de "Actualizado el" indica la última revisión. Los cambios relevantes se comunicarán en esta misma página.
 
-## 12. Contacto
+## 13. Contacto
 
 Para preguntas sobre esta política, escribe a barbosalomeliangelezequiel@gmail.com.
 
-## 13. Ley aplicable
+## 14. Ley aplicable
 
 Esta política se rige por la legislación aplicable en los Estados Unidos Mexicanos, incluida, en lo que corresponda, la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.

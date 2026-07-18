@@ -3,7 +3,7 @@ app: solokey
 kind: eliminacion-datos
 locale: en
 title: SoloKey Data Deletion
-updatedAt: 2026-07-16
+updatedAt: 2026-07-18
 ---
 
 **SoloKey** has no user accounts and stores no data in the cloud: all your information lives encrypted on your devices. Because of this, deleting your data is entirely under your control and requires no request to the developer.
@@ -27,6 +27,10 @@ On Android: long-press the SoloKey icon and choose "Uninstall", or go to Setting
 ### Sync
 
 If you used P2P sync, repeat the deletion on **every** device where you installed the App, since each one keeps its own local copy.
+
+### Exported backups
+
+If you exported encrypted backups (`.skvault` files, including those created by the scheduled backup), those files live in the folders you chose and are **not removed when you uninstall the App**. Delete them manually to complete the removal.
 
 ## No remote data to request
 

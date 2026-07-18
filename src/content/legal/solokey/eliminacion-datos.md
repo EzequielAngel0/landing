@@ -3,7 +3,7 @@ app: solokey
 kind: eliminacion-datos
 locale: es
 title: Eliminación de datos de SoloKey
-updatedAt: 2026-07-16
+updatedAt: 2026-07-18
 ---
 
 **SoloKey** no tiene cuentas de usuario ni almacena datos en la nube: toda tu información vive cifrada en tus dispositivos. Por eso, eliminar tus datos está por completo bajo tu control y no requiere ninguna solicitud al desarrollador.
@@ -27,6 +27,10 @@ En Android: mantén pulsado el icono de SoloKey y elige "Desinstalar", o entra a
 ### Sincronización
 
 Si usaste la sincronización P2P, repite el borrado en **cada** dispositivo donde tengas la App, ya que cada uno guarda su propia copia local.
+
+### Respaldos exportados
+
+Si exportaste respaldos cifrados (archivos `.skvault`, incluidos los generados por el respaldo programado), esos archivos viven en las carpetas que tú elegiste y **no se borran al desinstalar la App**. Elimínalos manualmente para completar el borrado.
 
 ## Sin datos remotos que solicitar
 
