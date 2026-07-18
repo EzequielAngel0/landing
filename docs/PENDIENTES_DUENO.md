@@ -23,8 +23,9 @@ Dashboards/consolas, cuentas, decisiones y legal. Contraparte: [`PENDIENTES_AGEN
 
 ## C. Contenido que solo tu entregas
 
-- [hecho] Primeras apps con legales: SoloKey, portfolio y la propia landing (publicados 2026-07-16). El inventario sigue vivo: al publicar una app nueva, agregar su par.
-- [ ] Revision de fondo y aprobacion de los 14 legales publicados (7 documentos x ES/EN); son borradores fieles al codigo, pero la aprobacion es tuya antes de usarlos en fichas de tienda.
+- [hecho] Apps con legales: SoloKey, portfolio, la propia landing (2026-07-16) y DocuAgent (2026-07-18, a partir de los borradores redactados por ti en `agentes/docs/legal/`). El inventario sigue vivo: al publicar una app nueva, agregar su par.
+- [ ] Revision de fondo y aprobacion de los 18 legales publicados (9 documentos x ES/EN); son fieles al codigo (y en DocuAgent, a tus borradores), pero la aprobacion final es tuya antes de usarlos en fichas de tienda.
+- [ ] DocuAgent: confirmar el periodo de conservacion de la bitacora (el agente publico 12 meses, el ejemplo sugerido en tu propio borrador).
 - [hecho] Enlaces reales del directorio (portfolio, GitHub, LinkedIn, X, WhatsApp, correo), tomados de site.ts del portfolio (2026-07-16).
 
 ## D. Migracion del dominio (critico)
