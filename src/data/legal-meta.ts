@@ -4,12 +4,14 @@
 
 export const appLabels: Record<string, string> = {
   solokey: 'SoloKey',
+  docuagent: 'DocuAgent',
   portfolio: 'Portfolio',
   landing: 'Este sitio (angelezequiel.dev)',
 };
 
 export const appLabelsEn: Record<string, string> = {
   solokey: 'SoloKey',
+  docuagent: 'DocuAgent',
   portfolio: 'Portfolio',
   landing: 'This site (angelezequiel.dev)',
 };
@@ -17,8 +19,9 @@ export const appLabelsEn: Record<string, string> = {
 // Orden del listado: primero las apps, el propio sitio al final.
 export const appOrder: Record<string, number> = {
   solokey: 0,
-  portfolio: 1,
-  landing: 2,
+  docuagent: 1,
+  portfolio: 2,
+  landing: 3,
 };
 
 export const kindLabels: Record<string, string> = {
